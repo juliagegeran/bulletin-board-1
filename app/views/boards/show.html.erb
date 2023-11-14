@@ -35,6 +35,13 @@
     <th>Posted on</th>
     <th>Expires on</th>
   </tr>
-  
+
+  <%@the_board.posts.where(expires_on: ..Date.today).each do |each_post|%>
+  <tr>
+    <td><%=each_post.title%></td>
+    <td><%=each_post.body%></td>
+    <td><%=each_post.created_at%></td>
+    <td><%=each_post.expires_on%></td>
+  </tr>
 
 </table>
