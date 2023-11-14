@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def home
-    render(:templates=>"boards/index")
+    redirect_to("/boards")
   end
 
   def index
