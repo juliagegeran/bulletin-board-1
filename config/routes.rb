@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  #Home page
+  get("/", {:controller => "boards", :action => "home"})
   # Routes for the Post resource:
 
   # CREATE

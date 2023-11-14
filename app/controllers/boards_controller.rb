@@ -1,4 +1,8 @@
 class BoardsController < ApplicationController
+  def home
+    render(:templates=>"boards/index")
+  end
+
   def index
     matching_boards = Board.all
 
