@@ -9,18 +9,18 @@
 <form action="/insert_post" method = "post">
   <div>
     <label for="title_field">Title</label>
-    <input type="text" name = "the_title" id = "title_field">
+    <input type="text" name = "query_title" id = "title_field">
   </div>
   <div>
     <label for="body_field">Body</label>
-    <textarea name="the_body" id="body_field" rows="3"></textarea>
+    <textarea name="query_body" id="body_field" rows="3"></textarea>
   </div>
 
   <div>
     <label for="expiration_field">Expires on</label>
-    <input type="date" id = "expiration_field" name = "expiration_date">
+    <input type="date" id = "expiration_field" name = "query_expires_on">
   </div>
-  <input type="hidden" id="board_id_box" name="query_board_id" value="7308">
+  <input type="hidden" id="board_id_box" name="query_board_id" value="<%=@the_board.id%>">
   <button>Add post</button>
 </form>
 
