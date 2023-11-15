@@ -1,12 +1,12 @@
 <div>
-  <div>
     <h1>
       <%=@the_board.name%>
     </h1>
 <hr>
+</div>
 
 <h2>Add a new post</h2>
-<form action="/insert_post">
+<form action="/insert_post" method = "post">
   <div>
     <label for="title_field">Title</label>
     <input type="text" name = "the_title" id = "title_field">
@@ -20,9 +20,10 @@
     <label for="expiration_field">Expires on</label>
     <input type="date" id = "expiration_field" name = "expiration_date">
   </div>
-
+  <input type="hidden" id="board_id_box" name="query_board_id" value="7308">
   <button>Add post</button>
 </form>
+
 
 <hr>
 
@@ -36,6 +37,7 @@
     <th>Expires on</th>
   </tr>
 
+
   <%@the_board.posts.where(expires_on: ..Date.today).each do |each_post|%>
   <tr>
     <td><%=each_post.title%></td>
@@ -43,5 +45,24 @@
     <td><%=each_post.created_at%></td>
     <td><%=each_post.expires_on%></td>
   </tr>
+  <%end%>
+</table>
 
+<h2>Expired posts</h2>
+<table border = "1">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Posted on</th>
+    <th>Expired on</th>
+  </tr>
+
+  <%@the_board.posts.where(expires_on: ..Date.today).each do |each_post|%>
+  <tr>
+    <td><%=each_post.title%></td>
+    <td><%=each_post.body%></td>
+    <td><%=each_post.created_at%></td>
+    <td><%=each_post.expires_on%></td>
+  </tr>
+  <%end%>
 </table>
